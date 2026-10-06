@@ -199,7 +199,7 @@ export default function PostDetail() {
               <span className="mx-2">•</span>
               <span>{estimateReadingTime(post.content)} min read</span>
               <span className="ml-auto">
-                <span className="bg-primary/10 text-primary px-2 py-1 rounded-full text-xs font-medium">
+                <span className="bg-accent text-foreground/70 px-2 py-1 rounded-md border border-border text-xs font-medium">
                   {post.category}
                 </span>
               </span>
@@ -217,7 +217,7 @@ export default function PostDetail() {
             <img 
               src={post.featuredImage} 
               alt={post.title}
-              className="w-full h-96 object-cover rounded-xl shadow-sm mb-8"
+              className="w-full h-96 object-cover rounded-lg shadow-sm mb-8"
             />
           )}
 
@@ -233,7 +233,7 @@ export default function PostDetail() {
             <div className="flex space-x-4">
               <Button 
                 onClick={() => sharePost("twitter")}
-                className="bg-blue-500 hover:bg-blue-600 text-white"
+                variant="outline"
                 data-testid="button-share-twitter"
               >
                 <Twitter className="h-4 w-4 mr-2" />
@@ -241,7 +241,7 @@ export default function PostDetail() {
               </Button>
               <Button 
                 onClick={() => sharePost("facebook")}
-                className="bg-blue-600 hover:bg-blue-700 text-white"
+                variant="outline"
                 data-testid="button-share-facebook"
               >
                 <Facebook className="h-4 w-4 mr-2" />
@@ -249,7 +249,7 @@ export default function PostDetail() {
               </Button>
               <Button 
                 onClick={() => sharePost("linkedin")}
-                className="bg-blue-700 hover:bg-blue-800 text-white"
+                variant="outline"
                 data-testid="button-share-linkedin"
               >
                 <Linkedin className="h-4 w-4 mr-2" />
@@ -258,10 +258,10 @@ export default function PostDetail() {
               <Button 
                 onClick={() => sharePost("copy")}
                 variant="secondary"
-                data-testid="button-copy-link"
+                data-testid="button-share-copy"
               >
                 <Copy className="h-4 w-4 mr-2" />
-                Copy Link
+                Copy link
               </Button>
             </div>
           </div>
@@ -318,7 +318,7 @@ export default function PostDetail() {
                   <Card key={i} className="animate-pulse">
                     <CardContent className="pt-6">
                       <div className="flex items-start space-x-4">
-                        <div className="w-10 h-10 bg-muted rounded-full"></div>
+                        <div className="w-10 h-10 bg-muted rounded-md"></div>
                         <div className="flex-1 space-y-2">
                           <div className="h-4 bg-muted rounded w-1/4"></div>
                           <div className="h-4 bg-muted rounded"></div>
@@ -335,7 +335,7 @@ export default function PostDetail() {
                   <Card key={comment.id}>
                     <CardContent className="pt-6">
                       <div className="flex items-start space-x-4">
-                        <div className="w-10 h-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-medium text-sm">
+                        <div className="w-10 h-10 bg-primary text-primary-foreground rounded-md flex items-center justify-center font-medium text-sm">
                           {comment.authorName.charAt(0).toUpperCase()}
                         </div>
                         <div className="flex-1">

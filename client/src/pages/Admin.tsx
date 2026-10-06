@@ -39,8 +39,9 @@ export default function Admin() {
   });
 
   const { data: comments = [], isLoading: commentsLoading } = useQuery<Comment[]>({
-    queryKey: ["/api/admin/comments"],
-    queryKey: selectedPost ? ["/api/admin/comments", { postId: selectedPost.id }] : undefined,
+    queryKey: selectedPost
+      ? ["/api/admin/comments", { postId: selectedPost.id }]
+      : ["/api/admin/comments"],
     enabled: !!selectedPost,
   });
 

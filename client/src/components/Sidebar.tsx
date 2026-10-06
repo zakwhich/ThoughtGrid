@@ -15,7 +15,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
   const [location] = useLocation();
 
   const navigationItems = [
-    { href: "/", label: "thoughts", icon: Lightbulb },
+    { href: "/", label: "Thoughts", icon: Lightbulb },
     { href: "/projects", label: "Projects", icon: Code },
     { href: "/research", label: "Research", icon: FlaskConical },
     { href: "/publications", label: "Publications", icon: Book },

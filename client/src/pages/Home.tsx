@@ -25,14 +25,14 @@ export default function Home() {
       {/* Sidebar Overlay */}
       {sidebarOpen && (
         <div 
-          className="fixed inset-0 bg-black bg-opacity-50 z-40"
+          className="fixed inset-0 bg-background/60 backdrop-blur-sm z-40"
           onClick={() => setSidebarOpen(false)}
           data-testid="sidebar-overlay"
         />
       )}
 
       {/* Header */}
-      <header className="bg-card shadow-sm sticky top-0 z-30">
+      <header className="bg-card border-b sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center">
@@ -54,7 +54,7 @@ export default function Home() {
                   placeholder="Search thoughts..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-64 pl-10"
+                  className="w-64 pl-10 hidden md:block"
                   data-testid="input-search"
                 />
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />

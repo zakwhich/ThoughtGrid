@@ -25,21 +25,22 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
   };
 
   const getCategoryColor = (category: string) => {
-    const colors: Record<string, string> = {
-      Technology: "bg-primary/10 text-primary",
-      Design: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-100",
-      Philosophy: "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-100",
-      Learning: "bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-100",
-      Data: "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100",
-      JavaScript: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-100",
-      Creativity: "bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-100",
+    const base = "bg-accent text-foreground/70 border border-border";
+    const subtleMap: Record<string, string> = {
+      Technology: base,
+      Design: base,
+      Philosophy: base,
+      Learning: base,
+      Data: base,
+      JavaScript: base,
+      Creativity: base,
     };
-    return colors[category] || "bg-secondary text-secondary-foreground";
+    return subtleMap[category] || base;
   };
 
   if (featured) {
     return (
-      <Card className="group hover:shadow-md transition-shadow overflow-hidden">
+      <Card className="group hover:shadow-md transition-all duration-200 overflow-hidden md:hover:-translate-y-0.5 will-change-transform">
         <div className="md:flex">
           {post.featuredImage && (
             <div className="md:w-1/3">
@@ -86,7 +87,7 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
   }
 
   return (
-    <Card className="group hover:shadow-md transition-shadow overflow-hidden">
+    <Card className="group hover:shadow-md transition-all duration-200 overflow-hidden md:hover:-translate-y-0.5 will-change-transform">
       <Link href={`/post/${post.slug}`}>
         <a data-testid={`card-post-${post.slug}`}>
           {post.featuredImage && (
@@ -114,14 +115,6 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
               <Badge className={getCategoryColor(post.category)}>
                 {post.category}
               </Badge>
-              <div className="flex items-center space-x-3 text-muted-foreground">
-                <span className="flex items-center text-sm">
-                  <Heart className="h-4 w-4 mr-1" /> 0
-                </span>
-                <span className="flex items-center text-sm">
-                  <MessageCircle className="h-4 w-4 mr-1" /> 0
-                </span>
-              </div>
             </div>
           </CardContent>
         </a>
